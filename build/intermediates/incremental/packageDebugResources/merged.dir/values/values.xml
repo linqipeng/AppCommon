@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="defaultColor"/>
+    <attr format="float" name="ratio"/>
+    <attr format="color" name="selectedColor"/>
+    <color name="text_color_h1_dark">#111111</color>
+    <color name="text_color_h2_dark">#303030</color>
+    <color name="text_color_h3_dark">#606060</color>
+    <color name="text_color_h4_dark">#919191</color>
+    <color name="text_color_h5_dark">#c1c1c1</color>
+    <color name="white">#ffffff</color>
+    <declare-styleable name="FlowView"><attr name="selectedColor"/><attr name="defaultColor"/></declare-styleable>
+    <declare-styleable name="IndicationView"><attr name="selectedColor"/><attr name="defaultColor"/><attr name="ratio"/></declare-styleable>
+    <declare-styleable name="MultiImageView"><attr format="reference" name="addImageIcon"/><attr format="reference" name="deleteImageIcon"/></declare-styleable>
+    <declare-styleable name="PasswordView"><attr format="integer" name="passwordLength"/><attr format="dimension" name="passwordPadding"/><attr format="color" name="borderColor"/><attr format="dimension" name="borderWidth"/><attr format="integer" name="cursorFlashTime"/><attr format="boolean" name="isCursorEnable"/><attr format="boolean" name="cipherEnable"/><attr format="color" name="cursorColor"/><attr format="dimension" name="passwordSize"/><attr format="enum" name="mode">
+            <enum name="underline" value="0"/>
+            <enum name="rect" value="1"/>
+        </attr></declare-styleable>
+    <declare-styleable name="RatioView"><attr name="ratio"/></declare-styleable>
+    <declare-styleable name="RootView"><attr format="reference" name="enptyLayoutId"/><attr format="reference" name="loadingLayoutId"/><attr format="reference" name="errorLayoutId"/><attr format="reference" name="emptyImage"/><attr format="string" name="emptyText"/></declare-styleable>
+    <declare-styleable name="TimeView"><attr format="reference" name="progressTextBackground"/><attr format="reference" name="TextBackground"/><attr format="color" name="progressTextColor"/><attr format="color" name="TextColor"/><attr format="color" name="progressNotityTextColor"/><attr format="color" name="notityTextColor"/></declare-styleable>
+    <item name="rootView_Content" type="id"/>
+    <item name="swipe_action" type="id"/>
+    <item name="swipe_content" type="id"/>
+    <string name="app_no_data">暂无数据</string>
+    <string name="app_reload">重新加载</string>
+    <string name="network_error">网络连接发送错误了</string>
+    <string name="time_colon">:</string>
+</resources>

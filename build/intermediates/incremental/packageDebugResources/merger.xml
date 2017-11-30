@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res"/><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/build/generated/res/rs/debug"/><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/build/generated/res/resValues/debug"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res"><file name="app_ic_back" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/drawable/app_ic_back.xml" qualifiers="" type="drawable"/><file name="app_network_error" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/drawable/app_network_error.xml" qualifiers="" type="drawable"/><file name="app_ic_empty" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/drawable/app_ic_empty.xml" qualifiers="" type="drawable"/><file name="app_root_view_loading" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_root_view_loading.xml" qualifiers="" type="layout"/><file name="app_root_view_error" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_root_view_error.xml" qualifiers="" type="layout"/><file name="app_root_view_empty" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_root_view_empty.xml" qualifiers="" type="layout"/><file name="app_time_view" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_time_view.xml" qualifiers="" type="layout"/><file name="app_root_view_content" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_root_view_content.xml" qualifiers="" type="layout"/><file name="app_item_multi_image" path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/layout/app_item_multi_image.xml" qualifiers="" type="layout"/><file path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/values/strings.xml" qualifiers=""><string name="app_no_data">暂无数据</string><string name="app_reload">重新加载</string><string name="network_error">网络连接发送错误了</string><string name="time_colon">:</string></file><file path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/values/attrs.xml" qualifiers=""><declare-styleable name="PasswordView">
+        <attr format="integer" name="passwordLength"/>
+        <attr format="dimension" name="passwordPadding"/>
+        <attr format="color" name="borderColor"/>
+        <attr format="dimension" name="borderWidth"/>
+        <attr format="integer" name="cursorFlashTime"/>
+        <attr format="boolean" name="isCursorEnable"/>
+        <attr format="boolean" name="cipherEnable"/>
+        <attr format="color" name="cursorColor"/>
+        <attr format="dimension" name="passwordSize"/>
+        <attr format="enum" name="mode">
+            <enum name="underline" value="0"/>
+            <enum name="rect" value="1"/>
+        </attr>
+    </declare-styleable><declare-styleable name="RootView">
+        <attr format="reference" name="enptyLayoutId"/>
+        <attr format="reference" name="loadingLayoutId"/>
+        <attr format="reference" name="errorLayoutId"/>
+        <attr format="reference" name="emptyImage"/>
+        <attr format="string" name="emptyText"/>
+    </declare-styleable><attr format="float" name="ratio"/><attr format="color" name="selectedColor"/><attr format="color" name="defaultColor"/><declare-styleable name="RatioView">
+        <attr name="ratio"/>
+    </declare-styleable><declare-styleable name="IndicationView">
+        <attr name="selectedColor"/>
+        <attr name="defaultColor"/>
+        <attr name="ratio"/>
+    </declare-styleable><declare-styleable name="TimeView">
+        <attr format="reference" name="progressTextBackground"/>
+        <attr format="reference" name="TextBackground"/>
+
+        <attr format="color" name="progressTextColor"/>
+        <attr format="color" name="TextColor"/>
+
+        <attr format="color" name="progressNotityTextColor"/>
+        <attr format="color" name="notityTextColor"/>
+    </declare-styleable><declare-styleable name="FlowView">
+        <attr name="selectedColor"/>
+        <attr name="defaultColor"/>
+    </declare-styleable><declare-styleable name="MultiImageView">
+        <attr format="reference" name="addImageIcon"/>
+        <attr format="reference" name="deleteImageIcon"/>
+    </declare-styleable></file><file path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/values/color.xml" qualifiers=""><color name="text_color_h1_dark">#111111</color><color name="text_color_h2_dark">#303030</color><color name="text_color_h3_dark">#606060</color><color name="text_color_h4_dark">#919191</color><color name="text_color_h5_dark">#c1c1c1</color><color name="white">#ffffff</color></file><file path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/res/values/ids.xml" qualifiers=""><item name="rootView_Content" type="id"/><item name="swipe_content" type="id"/><item name="swipe_action" type="id"/></file></source><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/build/generated/res/rs/debug"/><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/build/generated/res/resValues/debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/debug/res"/></dataSet><dataSet config="debug" generated-set="debug$Generated"><source path="/Users/cookie/Documents/zzsw/Merchant/AppCommon/src/debug/res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="FlowView"><attr name="selectedColor"/><attr name="defaultColor"/></declare-styleable><declare-styleable name="RatioView"><attr name="ratio"/></declare-styleable><declare-styleable name="MultiImageView"><attr format="reference" name="addImageIcon"/><attr format="reference" name="deleteImageIcon"/></declare-styleable><declare-styleable name="PasswordView"><attr format="integer" name="passwordLength"/><attr format="dimension" name="passwordPadding"/><attr format="color" name="borderColor"/><attr format="dimension" name="borderWidth"/><attr format="integer" name="cursorFlashTime"/><attr format="boolean" name="isCursorEnable"/><attr format="boolean" name="cipherEnable"/><attr format="color" name="cursorColor"/><attr format="dimension" name="passwordSize"/><attr format="enum" name="mode">
+            <enum name="underline" value="0"/>
+            <enum name="rect" value="1"/>
+        </attr></declare-styleable><declare-styleable name="IndicationView"><attr name="selectedColor"/><attr name="defaultColor"/><attr name="ratio"/></declare-styleable><declare-styleable name="TimeView"><attr format="reference" name="progressTextBackground"/><attr format="reference" name="TextBackground"/><attr format="color" name="progressTextColor"/><attr format="color" name="TextColor"/><attr format="color" name="progressNotityTextColor"/><attr format="color" name="notityTextColor"/></declare-styleable><declare-styleable name="RootView"><attr format="reference" name="enptyLayoutId"/><attr format="reference" name="loadingLayoutId"/><attr format="reference" name="errorLayoutId"/><attr format="reference" name="emptyImage"/><attr format="string" name="emptyText"/></declare-styleable></configuration></mergedItems></merger>

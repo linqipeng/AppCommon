@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_no_data">暂无数据</string>
+    <string name="app_reload">重新加载</string>
+    <string name="network_error">网络连接发送错误了</string>
+    <string name="time_colon">:</string>
+</resources>

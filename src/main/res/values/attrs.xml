@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PasswordView">
+        <attr name="passwordLength" format="integer" />
+        <attr name="passwordPadding" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="cursorFlashTime" format="integer" />
+        <attr name="isCursorEnable" format="boolean" />
+        <attr name="cipherEnable" format="boolean" />
+        <attr name="cursorColor" format="color" />
+        <attr name="passwordSize" format="dimension" />
+        <attr name="mode" format="enum">
+            <enum name="underline" value="0" />
+            <enum name="rect" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="RootView">
+        <attr name="enptyLayoutId" format="reference" />
+        <attr name="loadingLayoutId" format="reference" />
+        <attr name="errorLayoutId" format="reference" />
+        <attr name="emptyImage" format="reference" />
+        <attr name="emptyText" format="string" />
+    </declare-styleable>
+
+    <attr name="ratio" format="float" />
+    <attr name="selectedColor" format="color" />
+    <attr name="defaultColor" format="color" />
+
+    <declare-styleable name="RatioView">
+        <attr name="ratio" />
+    </declare-styleable>
+
+
+    <declare-styleable name="IndicationView">
+        <attr name="selectedColor" />
+        <attr name="defaultColor" />
+        <attr name="ratio" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TimeView">
+        <attr name="progressTextBackground" format="reference" />
+        <attr name="TextBackground" format="reference" />
+
+        <attr name="progressTextColor" format="color" />
+        <attr name="TextColor" format="color" />
+
+        <attr name="progressNotityTextColor" format="color" />
+        <attr name="notityTextColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="FlowView">
+        <attr name="selectedColor" />
+        <attr name="defaultColor" />
+    </declare-styleable>
+    <declare-styleable name="MultiImageView">
+        <attr name="addImageIcon" format="reference" />
+        <attr name="deleteImageIcon" format="reference" />
+    </declare-styleable>
+</resources>

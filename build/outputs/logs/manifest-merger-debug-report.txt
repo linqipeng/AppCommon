@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+	package
+		ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:3:5-33
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:1:1-8:12
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+application
+ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml:5:5-20
+uses-sdk
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		ADDED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml
+		INJECTED from /Users/cookie/Documents/zzsw/Merchant/AppCommon/src/main/AndroidManifest.xml

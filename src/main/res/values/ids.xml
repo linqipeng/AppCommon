@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rootView_Content" type="id" />
+
+    <item name="swipe_content" type="id" />
+    <item name="swipe_action" type="id" />
+</resources>
