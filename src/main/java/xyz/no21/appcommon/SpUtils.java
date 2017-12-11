@@ -42,4 +42,8 @@ public class SpUtils {
     public static void setUserInfo(Object userInfo) {
         preferences.edit().putString(USER_INFO, new Gson().toJson(userInfo)).apply();
     }
+
+    public static void clearData() {
+        preferences.edit().clear().apply();
+    }
 }
