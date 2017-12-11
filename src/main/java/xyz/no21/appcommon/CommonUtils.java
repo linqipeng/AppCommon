@@ -1,7 +1,10 @@
 package xyz.no21.appcommon;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -34,6 +37,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -242,5 +246,48 @@ public class CommonUtils {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 60, bos);//参数100表示不压缩
         byte[] bytes = bos.toByteArray();
         return Base64.encodeToString(bytes, Base64.NO_WRAP);
+    }
+
+    public static int getVersionCode(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return Integer.MAX_VALUE;
+    }
+
+    public static long downLoadApk(Context context, String path) {
+        DownloadManager.Request req = new DownloadManager.Request(Uri.parse(path));
+        req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
+        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        req.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "版本更新");
+        req.setTitle("Android.apk");
+        req.setDescription("下载完后请点击打开");
+        req.setMimeType("application/vnd.android.package-archive");
+        DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        if (dm != null) {
+            return dm.enqueue(req);
+        }
+        return -1;
+    }
+
+    /**
+     * 连接字符串
+     *
+     * @param segmentation 分隔符
+     */
+    public static String stringAdd(List<String> input, String segmentation) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+        StringBuilder buffer = new StringBuilder();
+        for (String item : input) {
+            buffer.append(item);
+            buffer.append(segmentation);
+        }
+        buffer.delete(buffer.length() - segmentation.length(), buffer.length());
+        return buffer.toString();
     }
 }

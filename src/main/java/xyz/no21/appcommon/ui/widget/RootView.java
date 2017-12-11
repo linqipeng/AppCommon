@@ -44,6 +44,7 @@ public class RootView extends FrameLayout {
     private int emptyImageId;
     private String emptyString;
 
+    private OnReloadListener onReloadListener;
 
     public RootView(@NonNull Context context) {
         super(context);
@@ -133,6 +134,14 @@ public class RootView extends FrameLayout {
             showingView.setVisibility(INVISIBLE);
         }
         mErrorView.setVisibility(VISIBLE);
+        mErrorView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onReloadListener != null) {
+                    onReloadListener.OnRootViewReload();
+                }
+            }
+        });
         showingView = mErrorView;
     }
 
@@ -174,4 +183,11 @@ public class RootView extends FrameLayout {
     private void setContentViewsVisibilty(boolean visible) {
     }
 
+    public void setOnReloadListener(OnReloadListener onReloadListener) {
+        this.onReloadListener = onReloadListener;
+    }
+
+    public interface OnReloadListener {
+        void OnRootViewReload();
+    }
 }

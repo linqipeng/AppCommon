@@ -20,7 +20,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<CommonAdapte
 
     protected List<T> items;
     protected ItemClickListener<T> mItemClickListener;
-    protected Context mContext;
+    protected Context context;
 
     @Override
     public int getItemCount() {
@@ -34,7 +34,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<CommonAdapte
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-        mContext =  recyclerView.getContext();
+        context = recyclerView.getContext();
     }
 
     @Override

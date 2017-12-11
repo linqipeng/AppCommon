@@ -14,19 +14,19 @@ import android.support.v4.app.Fragment;
 
 public class BaseFragment extends Fragment {
 
-    protected Context mContext;
+    protected Context context;
     protected String TAG = getClass().getSimpleName();
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext = context;
+        this.context = context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mContext = null;
+        context = null;
     }
 
     @Override

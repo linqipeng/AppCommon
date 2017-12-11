@@ -47,6 +47,7 @@ public class CommonToolBar extends Toolbar {
                 }
             });
         } else {
+            setNavigationIcon(null);
             setNavigationOnClickListener(null);
         }
     }

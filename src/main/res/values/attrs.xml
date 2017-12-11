@@ -24,6 +24,7 @@
         <attr name="errorLayoutId" format="reference" />
         <attr name="emptyImage" format="reference" />
         <attr name="emptyText" format="string" />
+        <attr name="errorImage" format="reference" />
     </declare-styleable>
 
     <attr name="ratio" format="float" />
