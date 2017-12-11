@@ -6,19 +6,17 @@ android {
     defaultConfig {
         minSdkVersion Integer.parseInt(ANDROID_MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(ANDROID_BUILD_TARGET_SDK_VERSION)
-        versionCode 1
-        versionName "1.0"
         vectorDrawables.useSupportLibrary = true
     }
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:${supportVersion}"
-    compile "com.android.support:recyclerview-v7:${supportVersion}"
-    compile "com.android.support:design:${supportVersion}"
-    compile "com.android.support:support-v4:${supportVersion}"
-    compile "com.android.support:cardview-v7:${supportVersion}"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:appcompat-v7:${supportVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportVersion}"
+    implementation "com.android.support:design:${supportVersion}"
+    implementation "com.android.support:support-v4:${supportVersion}"
+    implementation "com.android.support:cardview-v7:${supportVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     compile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
 //    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
@@ -29,7 +27,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'org.greenrobot:eventbus:3.1.1'
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
 }
