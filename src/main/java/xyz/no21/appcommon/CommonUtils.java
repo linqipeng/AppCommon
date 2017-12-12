@@ -258,12 +258,12 @@ public class CommonUtils {
         return Integer.MAX_VALUE;
     }
 
-    public static long downLoadApk(Context context, String path) {
+    public static long downLoadApk(Context context, String title, String path) {
         DownloadManager.Request req = new DownloadManager.Request(Uri.parse(path));
         req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
         req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         req.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "版本更新");
-        req.setTitle("Android.apk");
+        req.setTitle(title);
         req.setDescription("下载完后请点击打开");
         req.setMimeType("application/vnd.android.package-archive");
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
