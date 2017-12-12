@@ -33,14 +33,15 @@ public class BannerViewPager extends ViewPager implements Runnable {
     OnPageChangeListener onPageChangeListener = new OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+            removeCallbacks(BannerViewPager.this);
+            postDelayed(BannerViewPager.this, delay);
         }
 
         @Override
         public void onPageSelected(int position) {
             currentPosition = position % bannerProvider.size();
-            removeCallbacks(BannerViewPager.this);
-            postDelayed(BannerViewPager.this, delay);
+//            removeCallbacks(BannerViewPager.this);
+//            postDelayed(BannerViewPager.this, delay);
         }
 
         @Override
