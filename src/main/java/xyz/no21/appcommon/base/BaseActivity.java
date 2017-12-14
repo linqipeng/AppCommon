@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import xyz.no21.appcommon.PerformanceUtils;
+import xyz.no21.appcommon.RetrofitUtils;
 
 /**
  * Created by lin on 2017/7/8.
@@ -36,7 +37,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        RetrofitUtils.remove(TAG);
+        RetrofitUtils.remove(TAG);
         PerformanceUtils.fixInputMethodManagerLeak(this);
     }
 }

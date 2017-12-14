@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+import xyz.no21.appcommon.RetrofitUtils;
+
 
 /**
  * Created by lin on 2017/6/29.
@@ -31,8 +33,8 @@ public class BaseFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        RetrofitUtils.remove(TAG);
         super.onDestroyView();
-//        RetrofitUtils.remove(TAG);
     }
 
     @Override
