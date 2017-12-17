@@ -16,13 +16,13 @@ import xyz.no21.appcommon.RetrofitUtils;
 
 public class BaseFragment extends Fragment {
 
-    protected Context context;
+    protected BaseActivity context;
     protected String TAG = getClass().getSimpleName();
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.context = context;
+        this.context = (BaseActivity) context;
     }
 
     @Override

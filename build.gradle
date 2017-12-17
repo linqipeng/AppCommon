@@ -15,12 +15,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:${supportVersion}"
     implementation "com.android.support:design:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
-    implementation "com.android.support:cardview-v7:${supportVersion}"
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
-//    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
-//    testApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
 //    compile 'com.github.markzhai:blockcanary-android:1.5.0'
     compile 'com.facebook.fresco:fresco:1.5.0'
 
