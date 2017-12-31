@@ -2,8 +2,7 @@ package xyz.no21.appcommon.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import xyz.no21.appcommon.base.BaseFragment;
  * desc:
  */
 
-public class CommonPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
+public class CommonPagerAdapter extends FragmentPagerAdapter {
 
     private List<PagerInfo> fragments = new ArrayList<>();
 

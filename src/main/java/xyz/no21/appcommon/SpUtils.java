@@ -34,9 +34,9 @@ public class SpUtils {
         return token;
     }
 
-    public static void setToken(String token) {
-        preferences.edit().putString(TOKEN, token).apply();
+    public static boolean setToken(String token) {
         SpUtils.token = token;
+        return preferences.edit().putString(TOKEN, token).commit();
     }
 
     public static <T> T getUserInfo(Class<T> type) {
@@ -49,12 +49,12 @@ public class SpUtils {
     }
 
     public static boolean isLogin() {
-        return !TextUtils.isEmpty(getToken()) && getUserInfo(Object.class) != null;
+        return !TextUtils.isEmpty(getToken());
     }
 
-    public static void setUserInfo(Object userInfo) {
+    public static boolean setUserInfo(Object userInfo) {
         SpUtils.userInfo = userInfo;
-        preferences.edit().putString(USER_INFO, new Gson().toJson(userInfo)).apply();
+        return preferences.edit().putString(USER_INFO, new Gson().toJson(userInfo)).commit();
     }
 
     public static void clearData() {

@@ -14,7 +14,9 @@ import android.support.annotation.Nullable;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -258,6 +260,16 @@ public class CommonUtils {
         return Integer.MAX_VALUE;
     }
 
+    public static String getVersionName(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static long downLoadApk(Context context, String title, String path) {
         DownloadManager.Request req = new DownloadManager.Request(Uri.parse(path));
         req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
@@ -290,4 +302,49 @@ public class CommonUtils {
         buffer.delete(buffer.length() - segmentation.length(), buffer.length());
         return buffer.toString();
     }
+
+    public static void destroyWebView(WebView webView) {
+        webView.setWebViewClient(null);
+        webView.setWebChromeClient(null);
+        webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+        webView.clearHistory();
+        ((ViewGroup) webView.getParent()).removeView(webView);
+        webView.destroy();
+    }
+
+    public static long getCacheSize(File file) {
+        //判断文件是否存在
+        if (file.exists()) {
+            //如果是目录则递归计算其内容的总大小
+            if (file.isDirectory()) {
+                File[] children = file.listFiles();
+                long size = 0;
+                for (File f : children)
+                    size += getCacheSize(f);
+                return size;
+            } else {//如果是文件则直接返回其大小,以“兆”为单位
+                return file.length();
+            }
+        } else {
+            return 0;
+        }
+
+    }
+
+    public static void DeleteFolder(File file) {
+
+        if (file == null || !file.exists())
+            return;
+
+        if (file.isDirectory()) {
+            for (File item : file.listFiles()) {
+                DeleteFolder(item);
+            }
+            file.delete();
+        } else {
+            file.delete();
+        }
+    }
+
+
 }

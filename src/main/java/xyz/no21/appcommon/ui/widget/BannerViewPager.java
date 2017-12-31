@@ -55,6 +55,7 @@ public class BannerViewPager extends ViewPager implements Runnable {
     private int selectedColor;
     private int defaultColor;
     private float mAspectRatio;
+    private boolean autoScroll;
 
     public BannerViewPager(Context context) {
         this(context, null);
@@ -71,11 +72,12 @@ public class BannerViewPager extends ViewPager implements Runnable {
         space = CommonUtils.dp2px(getContext(), 20);
 
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.IndicationView);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BannerViewPager);
 
-        selectedColor = typedArray.getColor(R.styleable.IndicationView_selectedColor, Color.RED);
-        defaultColor = typedArray.getColor(R.styleable.IndicationView_defaultColor, Color.WHITE);
-        mAspectRatio = typedArray.getFloat(R.styleable.IndicationView_ratio, -1);
+        selectedColor = typedArray.getColor(R.styleable.BannerViewPager_selectedColor, Color.RED);
+        defaultColor = typedArray.getColor(R.styleable.BannerViewPager_defaultColor, Color.WHITE);
+        mAspectRatio = typedArray.getFloat(R.styleable.BannerViewPager_ratio, -1);
+        autoScroll = typedArray.getBoolean(R.styleable.BannerViewPager_autoScroll, true);
         typedArray.recycle();
 
         removeOnPageChangeListener(onPageChangeListener);
@@ -109,7 +111,8 @@ public class BannerViewPager extends ViewPager implements Runnable {
 
     @Override
     public void run() {
-        setCurrentItem(getCurrentItem() + 1);
+        if (autoScroll)
+            setCurrentItem(getCurrentItem() + 1);
     }
 
     @Override
