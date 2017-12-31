@@ -45,6 +45,7 @@ public class RootView extends FrameLayout {
     private String emptyString;
 
     private OnReloadListener onReloadListener;
+    private int errorImageId;
 
     public RootView(@NonNull Context context) {
         super(context);
@@ -86,6 +87,7 @@ public class RootView extends FrameLayout {
         mLoadingViewStub.setLayoutResource(loadingLayoutId);
 
         emptyImageId = typedArray.getResourceId(R.styleable.RootView_emptyImage, -1);
+        errorImageId = typedArray.getResourceId(R.styleable.RootView_errorImage, -1);
         emptyString = typedArray.getString(R.styleable.RootView_emptyText);
         typedArray.recycle();
     }
@@ -114,10 +116,6 @@ public class RootView extends FrameLayout {
             ImageView emptyImageView = mEmptyView.findViewById(R.id.emptyImage);
             emptyImageView.setImageResource(emptyImageId);
         }
-        if (emptyImageId != -1) {
-            ImageView emptyImageView = mEmptyView.findViewById(R.id.emptyImage);
-            emptyImageView.setImageResource(emptyImageId);
-        }
         if (!TextUtils.isEmpty(emptyString)) {
             TextView emptyTextView = mEmptyView.findViewById(R.id.emptyText);
             emptyTextView.setText(emptyString);
@@ -134,6 +132,12 @@ public class RootView extends FrameLayout {
             showingView.setVisibility(INVISIBLE);
         }
         mErrorView.setVisibility(VISIBLE);
+
+        if (errorImageId != -1) {
+            TextView errorTextView = mErrorView.findViewById(R.id.errorTextView);
+            errorTextView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, errorImageId, 0, 0);
+        }
+
         mErrorView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

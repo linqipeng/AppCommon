@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="ratio" format="float" />
+    <attr name="selectedColor" format="color" />
+    <attr name="defaultColor" format="color" />
+    <!--<attr name="borderColor" format="color" />-->
+
+
     <declare-styleable name="PasswordView">
         <attr name="passwordLength" format="integer" />
         <attr name="passwordPadding" format="dimension" />
@@ -27,19 +33,17 @@
         <attr name="errorImage" format="reference" />
     </declare-styleable>
 
-    <attr name="ratio" format="float" />
-    <attr name="selectedColor" format="color" />
-    <attr name="defaultColor" format="color" />
 
     <declare-styleable name="RatioView">
         <attr name="ratio" />
     </declare-styleable>
 
 
-    <declare-styleable name="IndicationView">
+    <declare-styleable name="BannerViewPager">
         <attr name="selectedColor" />
         <attr name="defaultColor" />
         <attr name="ratio" />
+        <attr name="autoScroll" format="boolean" />
     </declare-styleable>
 
 
@@ -62,5 +66,9 @@
     <declare-styleable name="MultiImageView">
         <attr name="addImageIcon" format="reference" />
         <attr name="deleteImageIcon" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="StrokeTextView">
+        <attr name="borderColor" />
+        <attr name="BorderWidth" format="dimension" />
     </declare-styleable>
 </resources>
