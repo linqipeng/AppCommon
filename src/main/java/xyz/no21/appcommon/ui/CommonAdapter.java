@@ -6,8 +6,11 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
+
+import xyz.no21.appcommon.ui.widget.ImageFrescoView;
 
 /**
  * Created by lin on 2017/4/29.
@@ -91,6 +94,14 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<CommonAdapte
             }
 //            noinspection unchecked
             return (V) view;
+        }
+
+        public TextView findTextView(int id) {
+            return findViewById(id, TextView.class);
+        }
+
+        public ImageFrescoView findFrescoView(int id) {
+            return findViewById(id, ImageFrescoView.class);
         }
 
     }
