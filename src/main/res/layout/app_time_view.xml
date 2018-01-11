@@ -17,6 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:gravity="center"
+        android:maxLines="1"
+        android:singleLine="true"
         android:textSize="12sp" />
 
     <TextView
@@ -30,6 +32,8 @@
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:maxLines="1"
+        android:singleLine="true"
         android:textSize="12sp" />
 
     <TextView
@@ -43,6 +47,8 @@
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:maxLines="1"
+        android:singleLine="true"
         android:textSize="12sp" />
 
 </merge>
