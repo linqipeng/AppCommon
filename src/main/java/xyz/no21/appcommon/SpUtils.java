@@ -58,6 +58,8 @@ public class SpUtils {
     }
 
     public static void clearData() {
+        userInfo = null;
+        token = null;
         preferences.edit().clear().apply();
     }
 }

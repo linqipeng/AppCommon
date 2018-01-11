@@ -346,5 +346,16 @@ public class CommonUtils {
         }
     }
 
+    public static boolean joinQqGroup(Context context, String key) {
+        try {
+            Intent intent = new Intent();
+            intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            // 未安装手Q或安装的版本不支持
+            return false;
+        }
+    }
 
 }

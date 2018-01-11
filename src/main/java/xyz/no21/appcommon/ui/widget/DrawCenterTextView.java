@@ -29,12 +29,20 @@ public class DrawCenterTextView extends AppCompatTextView {
     protected void onDraw(Canvas canvas) {
         Drawable[] drawables = getCompoundDrawables();
         Drawable drawableLeft = drawables[0];
+        Drawable drawableRight = drawables[2];
         if (drawableLeft != null) {
             float textWidth = getPaint().measureText(getText().toString());
             int drawablePadding = getCompoundDrawablePadding();
             int drawableWidth = drawableLeft.getIntrinsicWidth();
             float bodyWidth = textWidth + drawableWidth + drawablePadding;
             canvas.translate((getWidth() - bodyWidth) / 2, 0);
+        } else if (drawableRight != null) {
+            float textWidth = getPaint().measureText(getText().toString());
+            int drawablePadding = getCompoundDrawablePadding();
+            int drawableWidth = drawableRight.getIntrinsicWidth();
+            float bodyWidth = textWidth + drawableWidth + drawablePadding;
+            canvas.translate(-(getWidth() - bodyWidth) / 2, 0);
+
         }
         super.onDraw(canvas);
     }
