@@ -51,6 +51,7 @@ import java.util.Locale;
 
 public class CommonUtils {
     public static final String FORMAT_MM_DD_HH_MM_SS = "MM月dd日 HH:mm:ss";
+    public static final String FORMAT_STYLE_1 = "yyyy_MM_dd HH:mm:ss";
     private static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
     private static final File PHOTO_SAVE_DIR = new File(Environment.getExternalStorageDirectory(), "fastsale");
 
