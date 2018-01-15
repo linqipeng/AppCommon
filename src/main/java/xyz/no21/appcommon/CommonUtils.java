@@ -34,6 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,7 +52,9 @@ import java.util.Locale;
 
 public class CommonUtils {
     public static final String FORMAT_MM_DD_HH_MM_SS = "MM月dd日 HH:mm:ss";
-    public static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
+
+    public static final String FORMAT_STYLE_1 = "yyyy_MM_dd HH:mm:ss";
+    private static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
     private static final File PHOTO_SAVE_DIR = new File(Environment.getExternalStorageDirectory(), "fastsale");
 
     public static File getPhotoSaveDir(String fileName) {
@@ -357,5 +360,47 @@ public class CommonUtils {
             return false;
         }
     }
+
+    /**
+     * 高精度相乘
+     */
+    public static double mul(double d1, double d2) {
+        BigDecimal bd1 = new BigDecimal(Double.toString(d1));
+        BigDecimal bd2 = new BigDecimal(Double.toString(d2));
+        return bd1.multiply(bd2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+    /**
+     * 相加
+     */
+    public static double sum(double d1, double d2) {
+        BigDecimal bd1 = new BigDecimal(Double.toString(d1));
+        BigDecimal bd2 = new BigDecimal(Double.toString(d2));
+        return bd1.add(bd2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+    /**
+     * 减法
+     */
+    public static double sub(double d1, double d2) {
+        BigDecimal bd1 = new BigDecimal(Double.toString(d1));
+        BigDecimal bd2 = new BigDecimal(Double.toString(d2));
+        return bd1.subtract(bd2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+    /**
+     * double 除法
+     *
+     * @param scale 四舍五入 小数点位数
+     */
+    public static double div(double d1, double d2, int scale) {
+        //  当然在此之前，你要判断分母是否为0，
+        //  为0你可以根据实际需求做相应的处理
+
+        BigDecimal bd1 = new BigDecimal(Double.toString(d1));
+        BigDecimal bd2 = new BigDecimal(Double.toString(d2));
+        return bd1.divide(bd2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
 
 }

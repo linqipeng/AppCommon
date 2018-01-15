@@ -32,11 +32,6 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
     private int size;
 
 
-    public MarginItemDecoration(Context context, int mOrientation, @DimenRes int margin) {
-        this.margin = context.getResources().getDimensionPixelSize(margin);
-        this.mOrientation = mOrientation;
-    }
-
     public MarginItemDecoration(Context context, @ColorRes int color, @DimenRes int size, @DimenRes int margin) {
         this.color = ContextCompat.getColor(context, color);
         this.size = context.getResources().getDimensionPixelSize(size);
@@ -59,11 +54,44 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         if (mOrientation == VERTICAL) {
             drawVertical(c, parent);
         } else {
-//            drawHorizontal(c, parent);
+            drawHorizontal(c, parent);
         }
     }
 
     @SuppressLint("NewApi")
+    private void drawHorizontal(Canvas canvas, RecyclerView parent) {
+        canvas.save();
+        final int left;
+        final int right;
+        if (parent.getClipToPadding()) {
+            left = parent.getPaddingLeft();
+            right = parent.getWidth() - parent.getPaddingRight();
+            canvas.clipRect(left, parent.getPaddingTop(), right,
+                    parent.getHeight() - parent.getPaddingBottom());
+        } else {
+            left = 0;
+            right = parent.getWidth();
+        }
+
+        int childCount = parent.getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+            final View child = parent.getChildAt(i);
+            if (child.getVisibility() == View.VISIBLE) {
+
+                parent.getDecoratedBoundsWithMargins(child, mBounds);
+                final int bottom = mBounds.bottom + Math.round(child.getTranslationY());
+                final int top = bottom - size;
+
+                paint.setColor(color);
+                paint.setStyle(Paint.Style.FILL);
+
+                canvas.drawRect(left, top + margin, right, bottom - margin, paint);
+            }
+        }
+        canvas.restore();
+    }
+
     private void drawVertical(Canvas canvas, RecyclerView parent) {
         canvas.save();
         final int left;
@@ -105,7 +133,7 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         if (mOrientation == VERTICAL) {
             outRect.set(0, 0, 0, size);
         } else {
-            outRect.set(0, 0, 0, 0);
+            outRect.set(0, 0, size, 0);
         }
     }
 
