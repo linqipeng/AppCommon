@@ -129,9 +129,9 @@ public class TimeView extends LinearLayout implements Runnable {
         } else {
             notity.setText(endText);
 
-            hour.setBackground(textBackground);
             minute.setBackground(textBackground);
             second.setBackground(textBackground);
+            hour.setBackground(textBackground);
 
             hour.setTextColor(textColor);
             minute.setTextColor(textColor);
