@@ -7,6 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -54,7 +56,7 @@ public class CommonUtils {
     public static final String FORMAT_MM_DD_HH_MM_SS = "MM月dd日 HH:mm:ss";
 
     public static final String FORMAT_STYLE_1 = "yyyy_MM_dd HH:mm:ss";
-    private static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
+    public static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
     private static final File PHOTO_SAVE_DIR = new File(Environment.getExternalStorageDirectory(), "fastsale");
 
     public static File getPhotoSaveDir(String fileName) {
@@ -402,5 +404,17 @@ public class CommonUtils {
         return bd1.divide(bd2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
+    public static boolean isWifi(Context context) {
+        // 获取手机所有连接管理对象(包括对wi-fi,net等连接的管理)
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        // 获取NetworkInfo对象
+        NetworkInfo networkInfo = null;
+        if (manager != null) {
+            networkInfo = manager.getActiveNetworkInfo();
+        }
+        //判断NetworkInfo对象是否为空 并且类型是否为WIFI
+        return networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI && networkInfo.isAvailable();
+
+    }
 
 }

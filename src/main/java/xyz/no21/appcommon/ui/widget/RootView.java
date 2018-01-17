@@ -134,8 +134,8 @@ public class RootView extends FrameLayout {
         mErrorView.setVisibility(VISIBLE);
 
         if (errorImageId != -1) {
-            TextView errorTextView = mErrorView.findViewById(R.id.errorTextView);
-            errorTextView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, errorImageId, 0, 0);
+            ImageView errorImageView = mErrorView.findViewById(R.id.errorImageView);
+            errorImageView.setImageResource(errorImageId);
         }
 
         mErrorView.setOnClickListener(new OnClickListener() {
