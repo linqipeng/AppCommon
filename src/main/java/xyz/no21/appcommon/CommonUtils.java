@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PointF;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -418,4 +419,21 @@ public class CommonUtils {
 
     }
 
+    public static int getDistance(float x1, float y1, float x2, float y2) {
+        return (int) Math.sqrt(Math.pow((double) (x1 - x2), 2.0D) + Math.pow((double) (y1 - y2), 2.0D));
+    }
+
+    /**
+     * 弧度
+     *
+     * @return
+     */
+    public static float getRadian(PointF A, PointF B) {
+        float lenA = (float) (B.x - A.x);
+        float lenB = (float) (B.y - A.y);
+        float lenC = (float) Math.sqrt((double) (lenA * lenA + lenB * lenB));
+        float radian = (float) Math.acos((double) (lenA / lenC));
+        radian *= (float) (B.y < A.y ? -1 : 1);
+        return radian;
+    }
 }
