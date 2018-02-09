@@ -45,6 +45,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by lin on 2017/4/29.
@@ -428,11 +430,26 @@ public class CommonUtils {
      * @return
      */
     public static float getRadian(PointF A, PointF B) {
-        float lenA = (float) (B.x - A.x);
-        float lenB = (float) (B.y - A.y);
+        float lenA = B.x - A.x;
+        float lenB = B.y - A.y;
         float lenC = (float) Math.sqrt((double) (lenA * lenA + lenB * lenB));
         float radian = (float) Math.acos((double) (lenA / lenC));
         radian *= (float) (B.y < A.y ? -1 : 1);
         return radian;
+    }
+
+    /**
+     * 手机号号段校验，
+     * 第1位：1；
+     * 第2位：{3、4、5、6、7、8}任意数字；
+     * 第3—11位：0—9任意数字
+     */
+    public static boolean isMobileNum(String value) {
+        if (value != null && value.length() == 11) {
+            Pattern pattern = Pattern.compile("^1[3|4|5|6|7|8][0-9]\\d{8}$");
+            Matcher matcher = pattern.matcher(value);
+            return matcher.matches();
+        }
+        return false;
     }
 }
