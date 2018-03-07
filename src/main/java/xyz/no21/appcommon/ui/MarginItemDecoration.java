@@ -38,6 +38,12 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         this.margin = context.getResources().getDimensionPixelSize(margin);
     }
 
+    public MarginItemDecoration(Context context, @ColorRes int color, @DimenRes int size) {
+        this.color = ContextCompat.getColor(context, color);
+        this.size = context.getResources().getDimensionPixelSize(size);
+        this.margin = 0;
+    }
+
     public void setOrientation(int orientation) {
         if (orientation != HORIZONTAL && orientation != VERTICAL) {
             throw new IllegalArgumentException(
