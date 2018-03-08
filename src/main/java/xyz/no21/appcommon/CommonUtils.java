@@ -60,6 +60,7 @@ public class CommonUtils {
 
     public static final String FORMAT_STYLE_1 = "yyyy_MM_dd HH:mm:ss";
     public static final String FORMAT_STYLE_2 = "HH:mm";
+    public static final String FORMAT_STYLE_3 = "yyyy-MM-dd";
     public static final String FORMAT_DEFAULT = "yyyy年MM月dd日";
     private static final File PHOTO_SAVE_DIR = new File(Environment.getExternalStorageDirectory(), "fastsale");
 
