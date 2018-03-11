@@ -62,17 +62,22 @@ public class MultiImageView extends RecyclerView {
                 holder.itemView.setOnClickListener(null);
                 ImageView deleteView = holder.findViewById(R.id.delete, ImageView.class);
 
-                if (position < getItemCount() - 1) {
-                    deleteView.setImageResource(deleteImageIcon);
+                if (addImageIcon == -1 || position < getItemCount() - 1) {
                     final String bean = images.get(position);
+
+                    if (deleteImageIcon != -1) {
+                        deleteView.setImageResource(deleteImageIcon);
+                        deleteView.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                images.remove(bean);
+                                notifyItemRemoved(holder.getAdapterPosition());
+                            }
+                        });
+                    }
+
                     holder.findViewById(R.id.cover, ImageFrescoView.class).setImageURI(bean);
-                    deleteView.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            images.remove(bean);
-                            notifyItemRemoved(holder.getAdapterPosition());
-                        }
-                    });
+
                 } else {
                     deleteView.setImageBitmap(null);
                     deleteView.setOnClickListener(null);
@@ -92,7 +97,7 @@ public class MultiImageView extends RecyclerView {
 
             @Override
             public int getItemCount() {
-                return images.size() + 1;
+                return addImageIcon == -1 ? images.size() : images.size() + 1;
             }
         };
         setAdapter(adapter);
