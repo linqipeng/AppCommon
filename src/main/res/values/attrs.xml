@@ -71,4 +71,11 @@
         <attr name="borderColor" />
         <attr name="BorderWidth" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="waveColor" format="color" />
+        <!--中心圆图片半径-->
+        <!--波浪圆之间间距,值越小越窄-->
+        <attr name="waveWidth" format="dimension" />
+    </declare-styleable>
 </resources>

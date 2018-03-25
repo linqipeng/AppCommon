@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -35,6 +34,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigDecimal;
@@ -253,11 +253,14 @@ public class CommonUtils {
     }
 
     public static String Bitmap2StrByBase64(String localPath) {
-        Bitmap bitmap = BitmapFactory.decodeFile(localPath);
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 60, bos);//参数100表示不压缩
-        byte[] bytes = bos.toByteArray();
-        return Base64.encodeToString(bytes, Base64.NO_WRAP);
+
+        return Base64.encodeToString(getBytes(localPath), Base64.NO_WRAP);
+    }
+
+    public static byte[] Bitmap2Byte(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        return stream.toByteArray();
     }
 
     public static int getVersionCode(Context context) {
@@ -453,5 +456,26 @@ public class CommonUtils {
             return matcher.matches();
         }
         return false;
+    }
+
+    public static byte[] getBytes(String filePath) {
+        File file = new File(filePath);
+        ByteArrayOutputStream out = null;
+        try {
+            FileInputStream in = new FileInputStream(file);
+            out = new ByteArrayOutputStream();
+            byte[] b = new byte[1024];
+            while (in.read(b) != -1) {
+                out.write(b, 0, b.length);
+            }
+            out.close();
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (out != null) {
+            return out.toByteArray();
+        }
+        return null;
     }
 }

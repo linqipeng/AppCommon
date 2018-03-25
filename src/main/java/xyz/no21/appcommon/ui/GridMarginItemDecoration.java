@@ -26,17 +26,15 @@ public class GridMarginItemDecoration extends RecyclerView.ItemDecoration {
 
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                               RecyclerView.State state) {
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view) % spanCount;
 
-
         if (position == 0) {
-            outRect.set(0, 0, margin * 3 / 4, 0);
+            outRect.set(0, 0, margin / 3 * 2, margin);
         } else if (position == spanCount - 1) {
-            outRect.set(margin * 3 / 4, 0, 0, 0);
+            outRect.set(margin / 3 * 2, 0, 0, margin);
         } else {
-            outRect.set(margin / 4, 0, margin / 4, 0);
+            outRect.set(margin / 3, 0, margin / 3, margin);
         }
     }
 
