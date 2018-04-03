@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import xyz.no21.appcommon.RetrofitUtils;
-
 /**
  * Created by lin on 2017/7/8.
  * Email:L437943145@gmail.com
@@ -36,6 +34,5 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RetrofitUtils.remove(TAG);
     }
 }
