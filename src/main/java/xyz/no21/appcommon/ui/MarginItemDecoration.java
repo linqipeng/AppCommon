@@ -31,6 +31,7 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
     private int color;
     private int size;
 
+    boolean ignoreLast;
 
     public MarginItemDecoration(Context context, @ColorRes int color, @DimenRes int size, @DimenRes int margin) {
         this.color = ContextCompat.getColor(context, color);
@@ -113,6 +114,9 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         }
 
         int childCount = parent.getChildCount();
+        if (ignoreLast) {
+            childCount--;
+        }
 
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
@@ -143,5 +147,7 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-
+    public void setIgnoreLast(boolean ignoreLast) {
+        this.ignoreLast = ignoreLast;
+    }
 }
