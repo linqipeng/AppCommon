@@ -117,6 +117,12 @@ public class MultiImageView extends RecyclerView {
         return images;
     }
 
+    public void clearImages() {
+        images.clear();
+        adapter.notifyDataSetChanged();
+    }
+
+
     public interface OnAddIconClickListener {
         void onAddClick();
     }
