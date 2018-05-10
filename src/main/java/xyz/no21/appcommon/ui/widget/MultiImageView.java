@@ -31,6 +31,7 @@ public class MultiImageView extends RecyclerView {
 
     private OnAddIconClickListener onAddIconClickListener;
     private int deleteImageIcon;
+    private int maxSize = Integer.MAX_VALUE;
 
     public MultiImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -62,7 +63,7 @@ public class MultiImageView extends RecyclerView {
                 holder.itemView.setOnClickListener(null);
                 ImageView deleteView = holder.findViewById(R.id.delete, ImageView.class);
 
-                if (addImageIcon == -1 || position < getItemCount() - 1) {
+                if (addImageIcon == -1 || (position < maxSize && position < images.size())) {
                     final String bean = images.get(position);
 
                     if (deleteImageIcon != -1) {
@@ -97,12 +98,16 @@ public class MultiImageView extends RecyclerView {
 
             @Override
             public int getItemCount() {
-                return addImageIcon == -1 ? images.size() : images.size() + 1;
+                return Math.min(maxSize, addImageIcon == -1 ? images.size() : images.size() + 1);
             }
         };
         setAdapter(adapter);
     }
 
+    public void setMaxSize(int maxSize) {
+        this.maxSize = maxSize;
+        adapter.notifyDataSetChanged();
+    }
 
     public void addImage(String imageBean) {
         images.add(imageBean);
