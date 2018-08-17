@@ -10,11 +10,13 @@ import android.graphics.PointF;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Base64;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -32,10 +34,14 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
@@ -487,4 +493,29 @@ public class CommonUtils {
         }
         return null;
     }
+
+    public static String runShellCommand(String apkPath) {
+
+
+        Process exec;
+        try {
+            exec = Runtime.getRuntime().exec("pm install  -i  com.hhtc.appstore  --user 0 " + apkPath);
+
+            InputStream stream = exec.getErrorStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+            String line;
+            StringBuilder resulttt = new StringBuilder();
+            while ((line = reader.readLine()) != null) {
+                resulttt.append(line);
+            }
+
+            Log.e("ff", "runShellCommand: " + resulttt);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
