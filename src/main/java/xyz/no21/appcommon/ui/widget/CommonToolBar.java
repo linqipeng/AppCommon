@@ -43,6 +43,14 @@ public class CommonToolBar extends Toolbar {
         setup(context, title, true);
     }
 
+    public void setup(BaseActivity context, int title) {
+        setup(context, title, true);
+    }
+
+    public void setup(final BaseActivity context, int title, boolean canBack) {
+        setup(context, getResources().getString(title), canBack);
+    }
+
     public void setup(final BaseActivity context, String title, boolean canBack) {
         this.context = context;
         context.setSupportActionBar(this);
