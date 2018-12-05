@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import xyz.no21.appcommon.R;
@@ -74,6 +75,7 @@ public class CommonToolBar extends Toolbar {
         MenuItem menuItem = menu.findItem(R.id.actionRightText);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.app_toolbar_provider, this, false);
         TextView rightTextView = view.findViewById(R.id.rightTextView);
+        rightTextView.setVisibility(VISIBLE);
         rightTextView.setText(rightText);
         menuItem.setActionView(view);
         if (menuClickListener != null) {
@@ -87,6 +89,25 @@ public class CommonToolBar extends Toolbar {
 
     }
 
+    public void setRightImage(Menu menu, int image, final OnOptionMenuClickListener menuClickListener) {
+        context.getMenuInflater().inflate(R.menu.app_toolbar_provider, menu);
+        MenuItem menuItem = menu.findItem(R.id.actionRightText);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.app_toolbar_provider, this, false);
+        ImageView rightImageView = view.findViewById(R.id.rightImageView);
+        rightImageView.setVisibility(VISIBLE);
+        rightImageView.setImageResource(image);
+
+        menuItem.setActionView(view);
+        if (menuClickListener != null) {
+            rightImageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    menuClickListener.onRightTextClick();
+                }
+            });
+        }
+
+    }
 
     public interface OnOptionMenuClickListener {
         void onRightTextClick();
